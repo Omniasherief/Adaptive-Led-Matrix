@@ -1,0 +1,14 @@
+torch
+torchvision
+numpy
+seaborn
+opencv-python
+pandas
+requests
+tqdm
+pyyaml
+matplotlib
+onnx
+onnxruntime
+protobuf
+scipy
