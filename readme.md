@@ -164,16 +164,17 @@ The system processes multiple video sources and updates the LED matrix in real t
       <p align="center">
   <video width="640" height="360" controls>
     <source src="/docs/Highway.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+ 
   </video>
 </p>
 <p align="center"><b>Highway.mp4</b></p>
+
 3. **Controlled Test Scenario:**  
    A controlled video feed used to test different resolutions and LED mapping strategies.
          <p align="center">
   <video width="640" height="360" controls>
     <source src="/docs/Countryside.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+   
   </video>
 </p>
 <p align="center"><b>Countryside.mp4</b></p>
@@ -197,7 +198,7 @@ The system processes multiple video sources and updates the LED matrix in real t
   Use YOLOv7’s export scripts (e.g., `export.py`) and test with ONNX Runtime to ensure proper conversion.
 
 ### Hardware Component Choices
-- **MAX7219 LED Matrix Module:**  
+- **MAX7219 Module 4-in-1 8X8 LED Matrix Module:**  
   Selected for its simplicity and cost-effectiveness in controlling an 8×8 LED array.
 - **Raspberry Pi Camera Board V2:**  
   Provides versatile resolution options to balance between quality and performance.
