@@ -1,7 +1,7 @@
 
 ---
 
-# Adaptive LED Matrix Project
+# Adaptive LED Matrix 💡
 
 Adaptive LED Matrix is a proof-of-concept project inspired by Audi’s adaptive headlights. It offers a smart, cost-effective solution for better driving safety by adjusting an LED display in real time based on what it sees on the road. a system  not only adapts your headlights to reduce glare but also shows important signals—making driving easier and safer in busy traffic.. This repository is organized into two phases:
 
@@ -253,6 +253,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ---
 ## Contact
 
-omniasheriefahmed@gmail.com
+📧 omniasheriefahmed@gmail.com
 
 
