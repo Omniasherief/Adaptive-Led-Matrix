@@ -40,7 +40,9 @@ The Adaptive LED Matrix project simulates a dynamic lighting system that respond
 <p align="center">
   <img src="docs/with_Adaptive.png" alt="docs/with_Adaptive.png">
 </p>
+
 ---
+
 ## Features and Options
 
 ### Detection Options
@@ -121,7 +123,7 @@ Adaptive-LED-Matrix/
    Navigate to the Phase 1 folder:
 
    ```bash
-   cd phase1
+   cd src
    pip install -r requirements.txt
    ```
 
@@ -145,39 +147,20 @@ python3 src/main.py #--weights yolov7-tiny.pt --source "data/test_videos/cars_vi
 ## Sample Video Outputs
 
 The system processes multiple video sources and updates the LED matrix in real time. For instance:
-1. **Urban Roads:**  
-   The system detects vehicles and dynamically disables LED slots to simulate adaptive headlight patterns in a city setting.
 
-  
-   <p align="center">
-  <video width="640" height="360" controls>
-    <source src="/docs/urban.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
-<p align="center"><b>urban.mp4</b></p>
+1. **Urban Roads:**  
+   The system detects vehicles and dynamically disables LED slots to simulate adaptive headlight patterns in a city setting.  
+   [🎥 Watch urban.mp4](docs/urban.mp4)
 
 2. **Highway Traffic:**  
-   With a higher FPS input, the system smoothly updates the LED matrix even at high speeds.
-      <p align="center">
-  <video width="640" height="360" controls>
-    <source src="/docs/Highway.mp4" type="video/mp4">
- 
-  </video>
-</p>
-<p align="center"><b>Highway.mp4</b></p>
+   With a higher FPS input, the system smoothly updates the LED matrix even at high speeds.  
+   [🎥 Watch Highway.mp4](docs/Highway.mp4)
 
 3. **Controlled Test Scenario:**  
-   A controlled video feed used to test different resolutions and LED mapping strategies.
-         <p align="center">
-  <video width="640" height="360" controls>
-    <source src="/docs/Countryside.mp4" type="video/mp4">
-   
-  </video>
-</p>
-<p align="center"><b>Countryside.mp4</b></p>
+   A controlled video feed used to test different resolutions and LED mapping strategies.  
+   [🎥 Watch Countryside.mp4](docs/Countryside.mp4)
 
- outputs are available in the `docs/` folder.
+Video outputs are available in the `docs/` folder.
 
 ---
 
@@ -246,6 +229,8 @@ The system processes multiple video sources and updates the LED matrix in real t
 ### Software Enhancements
 - **Advanced Logging and Metrics:**  
   Implement detailed logging to monitor system performance and detection accuracy.
+- **Energy Consumption and Intelligent Brightness Control:**
+  Adopt more energy-efficient technologies to ensure that the system can operate for extended periods without requiring frequent maintenance. Additionally,          instead of turning off a portion of the LED matrix when an object is detected, implement an intelligent brightness control mechanism that adjusts the LED          intensity based on the distance of the approaching vehicle.
 - **Modular Improvements:**  
   Continue refactoring code for improved maintainability and scalability.
 
@@ -259,4 +244,10 @@ This project is licensed under the MIT License.
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your proposed changes.
+
+---
+## Contact
+
+omniasheriefahmed@gmail.com
+
 
