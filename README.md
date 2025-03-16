@@ -106,6 +106,11 @@ Adaptive-LED-Matrix/
 ├── README.md                # Project documentation
 └── LICENSE                  
 ```
+### data Link
+
+Access data folder via the following Google Drive folder:
+
+[Data](https://drive.google.com/drive/folders/1CEXMNom0yxXcvw-b2lsECXVmUIV8u60k?usp=drive_link)
 
 ---
 
