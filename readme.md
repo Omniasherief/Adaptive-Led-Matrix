@@ -12,7 +12,6 @@ Adaptive LED Matrix is a proof-of-concept project inspired by Audi’s advanced 
   Integrate the simulation with actual hardware components, such as MAX7219 LED modules and a Raspberry Pi Camera Board Version 2 (Sony IMX219 sensor).
 
 ---
-
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -42,7 +41,6 @@ The Adaptive LED Matrix project simulates a dynamic lighting system that respond
   <img src="docs/with_Adaptive.png" alt="docs/with_Adaptive.png">
 </p>
 ---
-
 ## Features and Options
 
 ### Detection Options
