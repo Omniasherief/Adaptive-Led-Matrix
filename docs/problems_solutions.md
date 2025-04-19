@@ -30,7 +30,6 @@ Vehicle-Detection-LED-Matrix/
 
 ## README.md
 
-```markdown
 # Vehicle-Detection-LED-Matrix
 
 This project implements a real-time vehicle detection system using a YOLOv7-tiny model exported to ONNX, with detections controlling an LED matrix simulation. The project is designed to run on devices like a Raspberry Pi (with a camera and a 4-in-1 8×8 LED Matrix module) but can also be tested on a laptop using video input.
