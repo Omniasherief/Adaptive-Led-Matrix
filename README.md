@@ -22,8 +22,8 @@ Adaptive LED Matrix is a proof-of-concept project inspired by Audi’s adaptive 
 - [Sample Video Outputs](#sample-video-outputs)
 - [Challenges and Solutions](#challenges-and-solutions)
 - [Camera and Hardware Details](#camera-and-hardware-details)
-- [Hardware Connections and Debugging](#Hardware-Connections)
-- [output](#output)
+- [Hardware Setup](#hardware-setup)
+- [Output](#output)
 - [External Links and Resources](#external-links-and-resources)
 - [Future Enhancements](#future-enhancements)
 - [License](#license)
@@ -98,14 +98,14 @@ Adaptive-LED-Matrix/
 ├── screen/
 │   ├── yolo7.png            #yolo7 is downloaded
 │   ├── shiftToraspb.png     # from pc to raspb
-|   ├── downloadvid.png      # out put of script/Download_YoutubeVid.py
+|   └── downloadvid.png      # out put of script/Download_YoutubeVid.py
 ├── src/
 │   ├── main.py              # Main script for running the simulation
 │   ├── detection.py         # Object detection and video processing using YOLOv7
 │   ├── led_control.py       # LED matrix simulation/control logic
 │   └── utils_custom.py      # Utility functions (model loading, image preprocessing)
 ├── scripts/
-|   ├── Download_YoutubeVid.py
+|   └──Download_YoutubeVid.py
 ├── Test/
 │   ├── camera_test.py       # Testing camera integration and object detection
 │   ├── test_ledmatrix.py    # Testing LED matrix control logic
@@ -212,6 +212,125 @@ Video outputs are available in the `docs/` folder.
   - Ideal for controlling 8×8 LED arrays, these modules provide a straightforward way to simulate dynamic lighting.
 
 ---
+## Hardware setup
+### Wiring the 4-in-1 MAX7219 LED Matrix to the Raspberry Pi
+
+Connect each MAX7219 module on the hat to the Pi’s SPI pins as follows:
+
+| Module   | MAX7219 Pin | Raspberry Pi Pin   | GPIO #               | Notes                              |
+| -------- | ----------- | ----------------- | -------------------- | ---------------------------------- |
+| **Left** | VCC         | Pin 1 (3.3 V)     | —                    | Or 5 V if required by your module  |
+|          | GND         | Pin 6 (GND)       | —                    |                                    |
+|          | DIN         | Pin 19            | GPIO 10 (MOSI)       |                                    |
+|          | CLK         | Pin 23            | GPIO 11 (SCLK)       |                                    |
+|          | CS          | Pin 24            | GPIO 8 (CE0)         |                                    |
+| **Right**| VCC         | Pin 1 (3.3 V)     | —                    | Or 5 V                              |
+|          | GND         | Pin 6 (GND)       | —                    |                                    |
+|          | DIN         | Pin 19            | GPIO 10 (MOSI)       | Shared data line                  |
+|          | CLK         | Pin 23            | GPIO 11 (SCLK)       | Shared clock                       |
+|          | CS          | Pin 26            | GPIO 7 (CE1)         |                                    |
+
+---
+
+### Verifying the SPI Interface
+
+1. **Enable SPI**  
+   ```bash
+   sudo raspi-config
+   # → Interface Options → SPI → Yes
+   ```
+
+2. **Check kernel modules**  
+   ```bash
+   lsmod | grep spi
+   ```
+   You should see:
+   ```
+   spidev                 16384  4
+   spi_bcm2835            20480  0
+   ```
+
+3. **List SPI devices**  
+   ```bash
+   ls /dev/spidev*
+   ```
+   Expected:
+   ```
+   /dev/spidev0.0  /dev/spidev0.1
+   ```
+
+---
+
+### Installing Required Libraries
+
+```bash
+sudo apt update
+sudo apt install build-essential python3-dev python3-pip libfreetype6-dev libjpeg-dev
+pip3 install luma.led_matrix
+```
+
+---
+
+### Testing SPI with `spidev-test`
+
+1. **Clone & build**  
+   ```bash
+   git clone https://github.com/rm-hull/spidev-test.git
+   cd spidev-test
+   make
+   ```
+
+2. **Run**  
+   ```bash
+   sudo ./spidev_test -D /dev/spidev0.0
+   ```
+   Expected:
+   ```
+   spi mode: 0x0
+   bits per word: 8
+   max speed: 500000 Hz (500 KHz)
+   RX | 00 00 … 00 | …
+   ```
+
+---
+
+### Running the Python Test
+
+```bash
+python3 Test/test_ledmatrix.py
+```
+
+This will light up your matrices to verify the `luma.led_matrix` driver.
+
+---
+
+### Debugging Tips
+
+- **Wiring**: Double-check all pin mappings.  
+- **SPI Enabled**: Confirm via `raspi-config`.  
+- **spidev-test**: Use C test to isolate hardware issues.  
+- **Power**: Ensure a stable 3.3 V/5 V supply per module spec.  
+- **Virtual Env**: Isolate Python deps if needed.
+
+---
+
+### Additional Resources
+
+- [Luma.LED_Matrix Docs](https://luma-led-matrix.readthedocs.io/en/latest/)  
+- [MAX7219 4-in-1 Tutorial](https://www.instructables.com/User-Manual-MAX7219-Dot-Matrix-4-in-1/)  
+- [Controlling MAX7219 on Pi (YouTube)](https://www.youtube.com/watch?v=6M7L8U36cO0)  
+
+---
+
+## Output
+
+### 1. Output
+![Output](me.png)
+
+### 2. “Close Slots” Output
+![Close Slots Output](close_slots.png)
+
+---
 
 ## External Links and Resources
 
@@ -219,7 +338,7 @@ Video outputs are available in the `docs/` folder.
 - [ONNX Runtime](https://github.com/microsoft/onnxruntime)
 - [Letterboxing in YOLO (Medium Article)](https://medium.com/@reachraktim/letterboxing-in-yolov5-yolov7-yolov8-an-intuitive-explanation-with-python-code-88f7d4323d6c)
 - [which yolo](https://youtu.be/QOC6vgnWnYo?si=vThQYaN5HXmn4OA8)  
-- [Additional YouTube Videos](https://youtu.be/SfqN-Hc5two?si=CdvGx0RcCg9JzO_g), [Video 3](https://youtu.be/WgPbbWmnXJ8?si=PHV8jY3v1FccKsgx), [Video 4](https://youtu.be/ag3DLKsl2vk?si=Ad01mu_K90sdmX1I), [Video 5](https://youtu.be/ce5PBam-V4Y?si=iwPSFvcWG9q_0Eak)
+- [Additional YouTube Videos](https://youtu.be/SfqN-Hc5two?si=CdvGx0RcCg9JzO_g), [Video 3](https://youtu.be/WgPbbWmnXJ8?si=PHV8jY3v1FccKsgx), [What is YOLO algorithm](https://youtu.be/ag3DLKsl2vk?si=Ad01mu_K90sdmX1I), [best model / best algorithm](https://youtu.be/ce5PBam-V4Y?si=iwPSFvcWG9q_0Eak)
 - [Reddit Discussion on Object Detection Models](https://www.reddit.com/r/computervision/comments/1gm40zi/how_yolo_or_other_object_detection_model_handle/?chainedPosts=t3_1hvnxld)
 
 
