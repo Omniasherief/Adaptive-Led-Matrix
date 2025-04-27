@@ -101,7 +101,67 @@
 
 #-------------------------------------------------------------------------------------------------------------------------------
 #phase 1
+#-------------------------------------------------------------------------------------------------------------------------------
+# #!/usr/bin/env python3
+# import sys
+# import os
+# import torch
+# import cv2
+# import numpy as np
+# from utils.general import non_max_suppression, scale_coords
+# from models.yolo import Model, Detect
+# from torch.nn.modules.container import Sequential, ModuleList
+# from models.common import Conv, MP, Concat, SP
+# from torch.nn.modules.conv import Conv2d
+# from torch.nn.modules.batchnorm import BatchNorm2d
+# from torch.nn.modules.activation import LeakyReLU
+# from torch.nn.modules.pooling import MaxPool2d
+# from torch.nn.modules.upsampling import Upsample
 
+# torch.serialization.add_safe_globals([
+#     Model, Detect, Sequential, ModuleList, Conv, MP, Concat, SP,
+#     Conv2d, BatchNorm2d, LeakyReLU, MaxPool2d, Upsample
+# ])
+
+# import sys
+# import os
+# import torch
+# import cv2
+# import numpy as np
+
+# # Add YOLOv7 repository path to PYTHONPATH so that required modules can be found
+# sys.path.insert(0, os.path.abspath("/home/omnia/yolov7"))
+
+# def load_model(weights, device):
+#     """
+#     Loads the YOLOv7-tiny model using torch.hub.load from the GitHub repo.
+#     Moves the model to the specified device (CPU/GPU) and sets it to evaluation mode.
+    
+#     For best practices, we use torch.hub.load which internally manages safe_globals.
+#     """
+#     model = torch.hub.load('WongKinYiu/yolov7', 'custom', weights, trust_repo=True)
+#     model.to(device).eval()
+#     return model
+
+# def preprocess_image(img, device):
+#     """
+#     Converts an image (numpy array) to a Tensor suitable for model input:
+#       - Converts to tensor.
+#       - Normalizes pixel values (0-1).
+#       - Adds a batch dimension.
+#     """
+#     img_tensor = torch.from_numpy(img).to(device)
+#     img_tensor = img_tensor.float() / 255.0  # Normalize the image
+#     img_tensor = img_tensor.unsqueeze(0)     # Add batch dimension
+#     return img_tensor
+
+
+
+
+#-------------------------------------------------------------------------------------------------------------------------------
+#phase 2
+#-----------------------------------------------------------------------------------------------------------------------------==
+#change pc user to rasp user omnia-->omnia2
 #!/usr/bin/env python3
 import sys
 import os
@@ -123,14 +183,10 @@ torch.serialization.add_safe_globals([
     Conv2d, BatchNorm2d, LeakyReLU, MaxPool2d, Upsample
 ])
 
-import sys
-import os
-import torch
-import cv2
-import numpy as np
+
 
 # Add YOLOv7 repository path to PYTHONPATH so that required modules can be found
-sys.path.insert(0, os.path.abspath("/home/omnia/yolov7"))
+sys.path.insert(0, os.path.abspath("/home/omnia2/yolov7"))
 
 def load_model(weights, device):
     """
