@@ -325,10 +325,10 @@ This will light up your matrices to verify the `luma.led_matrix` driver.
 ## Output
 
 ### 1. Output
-![Output](me.png)
+![Output](docs/me.png)
 
 ### 2. “Close Slots” Output
-![Close Slots Output](close_slots.png)
+![Close Slots Output](docs/close_slots.png)
 
 ---
 
