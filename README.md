@@ -22,6 +22,8 @@ Adaptive LED Matrix is a proof-of-concept project inspired by Audi’s adaptive 
 - [Sample Video Outputs](#sample-video-outputs)
 - [Challenges and Solutions](#challenges-and-solutions)
 - [Camera and Hardware Details](#camera-and-hardware-details)
+- [Hardware Connections and Debugging](#Hardware-Connections)
+- [output](#output)
 - [External Links and Resources](#external-links-and-resources)
 - [Future Enhancements](#future-enhancements)
 - [License](#license)
@@ -84,27 +86,33 @@ These options help balance image quality and processing speed.
 ---
 
 ## Repository Structure
-
 ```
 Adaptive-LED-Matrix/
 ├── data/
 │   ├── test_images/         # Images for debugging and testing object detection
 │   └── test_videos/         # Sample videos used for simulation (e.g., cars_video.mp4, realv.mp4, highway.mp4)
 ├── docs/
-│   ├── project_map.png      # A diagram outlining the system architecture 
+│   ├── 00000.png               # which is used in repo
 │   └── problems_solutions.md  # Documentation of encountered issues and their solutions , 0 phase which is commented 
 ├── models/                  # YOLOv7 model files and ONNX export scripts
 ├── screen/
-│   ├── Screenshot_1.png     
-│   ├── Screenshot_2.png
+│   ├── yolo7.png            #yolo7 is downloaded
+│   ├── shiftToraspb.png     # from pc to raspb
+|   ├── downloadvid.png      # out put of script/Download_YoutubeVid.py
 ├── src/
 │   ├── main.py              # Main script for running the simulation
 │   ├── detection.py         # Object detection and video processing using YOLOv7
 │   ├── led_control.py       # LED matrix simulation/control logic
 │   └── utils_custom.py      # Utility functions (model loading, image preprocessing)
+├── scripts/
+|   ├── Download_YoutubeVid.py
+├── Test/
+│   ├── camera_test.py       # Testing camera integration and object detection
+│   ├── test_ledmatrix.py    # Testing LED matrix control logic
+│   └── spidev-test.py       # Testing SPI communication for hardware control
 ├── requirements.txt         # Python dependencies (e.g., torch, opencv-python, numpy)
 ├── README.md                # Project documentation
-└── LICENSE                  
+└── LICENSE    
 ```
 ### data Link
 
