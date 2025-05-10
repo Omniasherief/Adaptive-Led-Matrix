@@ -17,6 +17,7 @@ Inspired by Audi’s cutting-edge adaptive headlight technology, Adaptive LED Ma
 ## Table of Contents
 
 - [Project Overview](#project-overview)
+- [System Architecture](#System-Architecture)
 - [Features and Options](#features-and-options)
 - [Repository Structure](#repository-structure)
 - [Installation and Setup](#installation-and-setup)
@@ -38,6 +39,17 @@ Inspired by Audi’s cutting-edge adaptive headlight technology, Adaptive LED Ma
 
 The Adaptive LED Matrix project simulates a dynamic lighting system that responds to vehicles detected in a video stream. By using YOLOv7, the system maps the detected vehicle positions to specific LED slots on an 8×8 matrix. In Phase 1, the entire process is simulated in software—laying the foundation for eventual hardware integration (Phase 2).
 <p align="center">
+  <img src="docs/Adaptive_led_matrix.png" alt="Adaptive Headlights">
+</p>
+ 
+<p align="center">
+  <img src="docs/with_Adaptive.png" alt="docs/with_Adaptive.png">
+</p>
+
+---
+## System Architecture
+
+<p align="center">
   <img src="docs/Adaptive_led_matrix.png" alt="Adaptive LED Matrix">
 </p>
  
@@ -46,6 +58,7 @@ The Adaptive LED Matrix project simulates a dynamic lighting system that respond
 </p>
 
 ---
+
 
 ## Features and Options
 
