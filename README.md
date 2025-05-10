@@ -50,12 +50,9 @@ The Adaptive LED Matrix project simulates a dynamic lighting system that respond
 ## System Architecture
 
 <p align="center">
-  <img src="docs/Adaptive_led_matrix.png" alt="Adaptive LED Matrix">
+  <img src="docs/flowchart.png" alt="FLOWCHART">
 </p>
  
-<p align="center">
-  <img src="docs/with_Adaptive.png" alt="docs/with_Adaptive.png">
-</p>
 
 ---
 
